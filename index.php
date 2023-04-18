@@ -41,10 +41,16 @@ $hotels = [
 ];
 
 $hotelIndex = 0;
-$parkingOk = 'Sì';
-$noParking = 'No';
+$parkingOk = 'OK';
+$noParking = 'NO';
 
-
+for($i = 0; $i < count($hotels); $i++) {
+    if($hotels[$i]['parking'] == true) {
+        $hotels[$i]['parking'] = $parkingOk;
+    } else {
+        $hotels[$i]['parking'] = $noParking;
+    }
+}
 // $hotels[$hotelIndex]['parking'] = $parkingOk;
 // var_dump($hotels);
 
@@ -63,8 +69,32 @@ $noParking = 'No';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 <body>
-
-    
+    <div style="display: inline-block; padding: 20px;">
+        <h3>Scegli il parcheggio</h3>
+            <form action="index.php">
+            <input type="radio" name="parcheggio" value="OK" id="parcheggio">
+            <label for="parcheggio">OK</label>
+            <input type="radio" name="parcheggio" value="NO" id="parcheggio">
+            <label for="parcheggio">NO</label>
+            <!-- <input type="submit" value="Submit"> -->
+        <!-- </form>
+    </div>
+    <div style="display: inline-block; padding: 20px;"> -->
+            <h3>Scegli il voto</h3>
+        <!-- <form action="index.php"> -->
+            <input type="radio" name="voto" value="1" id="voto">
+            <label for="voto">1</label>
+            <input type="radio" name="voto" value="2" id="voto">
+            <label for="voto">2</label>
+            <input type="radio" name="voto" value="3" id="voto">
+            <label for="voto">3</label>
+            <input type="radio" name="voto" value="4" id="voto">
+            <label for="voto">4</label>
+            <input type="radio" name="voto" value="5" id="voto">
+            <label for="voto">5</label>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
     <table class="table">
         <thead>
             <tr>
@@ -85,6 +115,8 @@ $noParking = 'No';
                     ?>
 
                     <td><?php echo $value?></td>
+
+
                         
                     <?php
                     }
@@ -97,7 +129,7 @@ $noParking = 'No';
             
             ?>
         </tbody>
-        </table>
+    </table>
     
     
 
@@ -112,7 +144,6 @@ $noParking = 'No';
 
 
 <!-- 
-Dopo aggiungete Bootstrap e mostrate le informazioni con una tabella.
 Bonus:
 1 - Aggiungere un form ad inizio pagina che tramite una richiesta GET permetta di filtrare gli hotel che hanno un parcheggio.
 2 - Aggiungere un secondo campo al form che permetta di filtrare gli hotel per voto (es. inserisco 3 ed ottengo tutti gli hotel che hanno un voto di tre stelle o superiore)
