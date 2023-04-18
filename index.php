@@ -41,6 +41,12 @@ $hotels = [
 ];
 
 $hotelIndex = 0;
+$parkingOk = 'Sì';
+$noParking = 'No';
+
+
+// $hotels[$hotelIndex]['parking'] = $parkingOk;
+// var_dump($hotels);
 
 ?>
 
@@ -58,7 +64,6 @@ $hotelIndex = 0;
 </head>
 <body>
 
-
     
     <table class="table">
         <thead>
@@ -74,29 +79,19 @@ $hotelIndex = 0;
             <tr>
             <?php
 
+
             foreach($hotels as $hotel) {
-                foreach($hotel as $name) {
+                foreach($hotel as $item => $value) {
+                    ?>
 
-                    echo "<td>{$name}</td>";
-
+                    <td><?php echo $value?></td>
+                        
+                    <?php
                     }
                 ?>
-                    <!-- <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td> -->
+                
             </tr>
-                <!-- <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr> -->
+                
             <?php
             }
             
