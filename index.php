@@ -58,7 +58,10 @@
     var_dump($hotels);
 
     foreach($hotels as $hotel) {
-        echo "{$hotel['name']} <br>";
+        // echo "{$hotel['name']} <br>";
+        foreach($hotel as $item) {
+            echo $item . '<br>';
+        }
     }
 
 
